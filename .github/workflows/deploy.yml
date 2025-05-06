@@ -26,13 +26,13 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - name: Install Dependencies
-        run: npm ci
+        run: cd vibe-trivial-games && npm ci
       - name: Build
-        run: npm run build
+        run: cd vibe-trivial-games && npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./vibe-trivial-games/dist
 
   deploy:
     environment:
