@@ -24,11 +24,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
       - name: Install Dependencies
-        run: cd vibe-trivial-games && npm ci
+        working-directory: ./vibe-trivial-games
+        run: npm install
       - name: Build
-        run: cd vibe-trivial-games && npm run build
+        working-directory: ./vibe-trivial-games
+        run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
