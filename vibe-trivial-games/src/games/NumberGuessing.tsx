@@ -42,41 +42,45 @@ const NumberGuessing = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center p-8 bg-gray-100 rounded-lg shadow-md max-w-md mx-auto">
-            <h2 className="text-2xl font-bold mb-6 text-blue-600">数当てゲーム</h2>
-            <p className="mb-4 text-gray-700">{message}</p>
+        <div className="w-full bg-gray-100 rounded-lg shadow-md overflow-hidden">
+            <div className="p-4">
+                <h2 className="text-xl md:text-2xl font-bold mb-4 text-blue-600 text-center">数当てゲーム</h2>
+                <p className="mb-4 text-gray-700 text-center text-sm md:text-base">{message}</p>
 
-            <div className="flex gap-2 mb-4 w-full">
-                <input
-                    type="number"
-                    className="p-2 border rounded flex-grow text-center"
-                    value={guess}
-                    onChange={(e) => setGuess(e.target.value)}
-                    disabled={gameOver}
-                    min="1"
-                    max="100"
-                />
-                <button
-                    type="button"
-                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                    onClick={handleGuess}
-                    disabled={gameOver}
-                >
-                    挑戦
-                </button>
+                <div className="flex gap-2 mb-4 w-full">
+                    <input
+                        type="number"
+                        className="p-2 border rounded flex-grow text-center"
+                        value={guess}
+                        onChange={(e) => setGuess(e.target.value)}
+                        disabled={gameOver}
+                        min="1"
+                        max="100"
+                    />
+                    <button
+                        type="button"
+                        className="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 text-sm md:text-base whitespace-nowrap"
+                        onClick={handleGuess}
+                        disabled={gameOver}
+                    >
+                        挑戦
+                    </button>
+                </div>
+
+                {gameOver && (
+                    <div className="flex justify-center">
+                        <button
+                            type="button"
+                            className="bg-green-500 text-white px-3 py-2 rounded hover:bg-green-600 mt-4 text-sm md:text-base"
+                            onClick={resetGame}
+                        >
+                            もう一度遊ぶ
+                        </button>
+                    </div>
+                )}
+
+                <p className="mt-4 text-xs md:text-sm text-gray-500 text-center">試行回数: {attempts}</p>
             </div>
-
-            {gameOver && (
-                <button
-                    type="button"
-                    className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mt-4"
-                    onClick={resetGame}
-                >
-                    もう一度遊ぶ
-                </button>
-            )}
-
-            <p className="mt-4 text-sm text-gray-500">試行回数: {attempts}</p>
         </div>
     );
 };
