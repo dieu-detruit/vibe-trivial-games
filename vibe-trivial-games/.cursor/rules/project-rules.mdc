@@ -3,7 +3,8 @@ description: Project standards and conventions for vibe-trivial-games
 globs: "**/*"
 alwaysApply: true
 ---
-# Cursor Project Rules
+
+# Project Rules for vibe-trivial-games
 
 ## Commit Messages
 
@@ -36,4 +37,4 @@ Examples:
 
 - GitHub Pages is used for deployment 
 - Deploy using `npm run deploy` or wait for GitHub Actions to deploy automatically
-- Base path is set to `/vibe-trivial-games/` in vite.config.ts 
+- Base path is set to `/vibe-trivial-games/` in vite.config.ts
